@@ -1,0 +1,66 @@
+# ======================
+# IntelliJ IDEA
+# ======================
+.idea/
+*.iml
+*.iws
+out/
+*.ipr
+
+# ======================
+# Java
+# ======================
+*.class
+*.log
+*.ctxt
+hs_err_pid*
+replay_pid*
+*.hprof
+
+# ======================
+# Maven
+# ======================
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# ======================
+# Gradle
+# ======================
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+gradle-app.setting
+**/build/
+**/out/
+
+# ======================
+# Servidores de Aplicación
+# ======================
+# GlassFish / Payara
+glassfish/domains/
+glassfish/config/domain.xml
+payara/domains/
+payara/config/domain.xml
+
+# WildFly / JBoss
+standalone/tmp/
+standalone/data/
+standalone/log/
+standalone/configuration/standalone_xml_history/
+
+# Tomcat
+logs/
+work/
+temp/
+
+# ======================
+# Archivos temporales del SO
+# ======================
+.DS_Store
+Thumbs.db

@@ -10,14 +10,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-    private static final String URL =
-        "jdbc:sqlserver://GABRIEL:1433;" +
-        "databaseName=recursoshumano_udb;" +
-        "encrypt=true;" +
-        "trustServerCertificate=true;" +
-        "integratedSecurity=true;";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/recursoshumano_udb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    private static final String USER = "rrhh_user";
+    private static final String PASSWORD = "TuClaveFuerte123!";
 
     public static Connection get() throws SQLException {
-        return DriverManager.getConnection(URL);
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }

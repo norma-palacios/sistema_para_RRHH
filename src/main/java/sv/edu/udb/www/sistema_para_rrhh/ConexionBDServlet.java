@@ -5,39 +5,55 @@
 package sv.edu.udb.www.sistema_para_rrhh;
 
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
-import java.io.IOException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.PrintWriter;
+import java.io.IOException;
 import java.sql.*;
 
-import conexion.Conexion;
-
-/**
- *
- * @author felix
- */
 @WebServlet(name = "ConexionBDServlet", urlPatterns = {"/ConexionBDServlet"})
 public class ConexionBDServlet extends HttpServlet {
-  @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-    resp.setCharacterEncoding("UTF-8");
-    resp.setContentType("text/plain; charset=UTF-8");
 
-    try (Connection cn = Conexion.get();
-         PreparedStatement ps = cn.prepareStatement("SELECT COUNT(*) FROM dbo.Empleado");
-         ResultSet rs = ps.executeQuery();
-         PrintWriter out = resp.getWriter()) {
+    
+    private static final String URL  =
+            "jdbc:mysql://localhost:3306/recursoshumano_udb"
+            + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    private static final String USER = "rrhh_user";
+    private static final String PASS = "TuClaveFuerte123!"; // <-- cambia si corresponde
 
-      rs.next();
-      out.println("Conexión OK a SQL Server");
-      out.println("Empleados en BD: " + rs.getInt(1));
-
-    } catch (SQLException e) {
-      resp.setStatus(500);
-      try (PrintWriter out = resp.getWriter()) {
-        out.println("ERROR al conectar/consultar:");
-        e.printStackTrace(out);
-      }
+    static {
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("No se encontró el driver MySQL JDBC", e);
+        }
     }
-  }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.setContentType("text/plain; charset=UTF-8");
+
+        try (PrintWriter out = resp.getWriter()) {
+            try (Connection cn = DriverManager.getConnection(URL, USER, PASS)) {
+                out.println("Conexión OK a MySQL ✅");
+
+                // Contar registros en la tabla empleado
+                String sql = "SELECT COUNT(*) FROM empleado";
+                try (PreparedStatement ps = cn.prepareStatement(sql);
+                     ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        out.println("Empleados en BD: " + rs.getInt(1));
+                    }
+                }
+            } catch (SQLException ex) {
+                resp.setStatus(500);
+                out.println("ERROR al conectar/consultar:");
+                out.println(ex.getMessage());
+                for (Throwable t : ex) out.println("\t" + t);
+            }
+        }
+    }
 }

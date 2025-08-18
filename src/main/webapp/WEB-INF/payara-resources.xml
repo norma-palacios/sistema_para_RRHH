@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//Payara.fish//DTD Payara Server 6 Resource Definitions//EN" "http://www.payara.fish/dtds/payara-resources_1_6.dtd">
+<resources>
+  <jdbc-connection-pool name="RRHHPool" res-type="javax.sql.DataSource"
+      datasource-classname="com.microsoft.sqlserver.jdbc.SQLServerDataSource">
+    <property name="serverName" value="Gabriel"/>
+    <property name="portNumber" value="1433"/>
+    <property name="databaseName" value="recursoshumano_udb"/>
+    <property name="user" value="sa"/>
+    <property name="password" value=""/>
+    <property name="encrypt" value="true"/>
+    <property name="trustServerCertificate" value="true"/>
+  </jdbc-connection-pool>
+
+  <jdbc-resource pool-name="RRHHPool" jndi-name="jdbc/RRHHDS"/>
+</resources>

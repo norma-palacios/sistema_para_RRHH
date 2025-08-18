@@ -13,8 +13,7 @@
         <url-pattern>/ContratacionesServlet</url-pattern>
     </servlet-mapping>
 
-    <!-- Aquí lo hacemos el inicio -->
     <welcome-file-list>
-        <welcome-file>ContratacionesServlet</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

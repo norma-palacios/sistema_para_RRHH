@@ -1,85 +1,79 @@
 package sv.edu.udb.www.sistema_para_rrhh.modelo;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 public class Contratacion {
-    private int id;
-    private String departamento;
-    private String empleado;
-    private String cargo;
-    private String tipoContratacion;
-    private Date fechaContratacion;
+    private int idContratacion;
+    private Departamento departamento;
+    private Empleado empleado;
+    private Cargo cargo;
+    private TipoContratacion tipoContratacion;
+    private LocalDate fechaContratacion;
     private double salario;
-    private String estado ;
+    private boolean estado;
 
-    public Contratacion (
-            int id,
-            String departamento,
-            String empleado,
-            String cargo,
-            String tipoContratacion,
-            Date fechaContratacion,
-            double salario,
-            String estado
-    ) {
-        this.id = id;
+    public Contratacion() {}
+
+    public Contratacion(int idContratacion, Departamento departamento, Empleado empleado, Cargo cargo,
+                        TipoContratacion tipoContratacion, LocalDate fechaContratacion,
+                        double salario, boolean estado) {
+        this.idContratacion = idContratacion;
         this.departamento = departamento;
-        this.empleado =  empleado;
+        this.empleado = empleado;
         this.cargo = cargo;
         this.tipoContratacion = tipoContratacion;
         this.fechaContratacion = fechaContratacion;
         this.salario = salario;
         this.estado = estado;
-
-
     }
 
-    public int getId() {
-        return id;
+    public int getIdContratacion() {
+        return idContratacion;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdContratacion(int idContratacion) {
+        this.idContratacion = idContratacion;
     }
 
-    public String getDepartamento() {
+    public Departamento getDepartamento() {
         return departamento;
     }
 
-    public void setDepartamento(String departamento) {
+    public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
     }
 
-    public String getEmpleado() {
+    public Empleado getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(String empleado) {
+    public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
     }
 
-    public String getCargo() {
+    public Cargo getCargo() {
         return cargo;
     }
 
-    public void setCargo(String cargo) {
+    public void setCargo(Cargo cargo) {
         this.cargo = cargo;
     }
 
-    public String getTipoContratacion() {
+    public TipoContratacion getTipoContratacion() {
         return tipoContratacion;
     }
 
-    public void setTipoContratacion(String tipoContratacion) {
+    public void setTipoContratacion(TipoContratacion tipoContratacion) {
         this.tipoContratacion = tipoContratacion;
     }
 
-    public Date getFechaContratacion() {
+    public LocalDate getFechaContratacion() {
         return fechaContratacion;
     }
 
-    public void setFechaContratacion(Date fechaContrtacion) {
-        fechaContrtacion = fechaContrtacion;
+    public void setFechaContratacion(LocalDate fechaContratacion) {
+        this.fechaContratacion = fechaContratacion;
     }
 
     public double getSalario() {
@@ -90,11 +84,11 @@ public class Contratacion {
         this.salario = salario;
     }
 
-    public String getEstado() {
+    public boolean isEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 }

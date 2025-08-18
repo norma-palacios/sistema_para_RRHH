@@ -1,22 +1,23 @@
 package sv.edu.udb.www.sistema_para_rrhh.modelo;
 
+
 import java.time.LocalDate;
 
-public class Contratacion {
+public class ListaContratacion {
     private int idContratacion;
-    private Departamento departamento;
-    private Empleado empleado;
-    private Cargo cargo;
-    private TipoContratacion tipoContratacion;
+    private String departamento;
+    private String empleado;
+    private String cargo;
+    private String  tipoContratacion;
     private LocalDate fechaContratacion;
     private double salario;
     private boolean estado;
 
-    public Contratacion() {}
+    public ListaContratacion() {}
 
-    public Contratacion(int idContratacion, Departamento departamento, Empleado empleado, Cargo cargo,
-                        TipoContratacion tipoContratacion, LocalDate fechaContratacion,
-                        double salario, boolean estado) {
+    public ListaContratacion(int idContratacion, String departamento, String empleado, String cargo,
+                             String  tipoContratacion, LocalDate fechaContratacion,
+                             double salario, boolean estado) {
         this.idContratacion = idContratacion;
         this.departamento = departamento;
         this.empleado = empleado;
@@ -35,35 +36,35 @@ public class Contratacion {
         this.idContratacion = idContratacion;
     }
 
-    public Departamento getDepartamento() {
+    public String getDepartamento() {
         return departamento;
     }
 
-    public void setDepartamento(Departamento departamento) {
+    public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
 
-    public Empleado getEmpleado() {
+    public String getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(Empleado empleado) {
+    public void setEmpleado(String empleado) {
         this.empleado = empleado;
     }
 
-    public Cargo getCargo() {
+    public String getCargo() {
         return cargo;
     }
 
-    public void setCargo(Cargo cargo) {
+    public void setCargo(String cargo) {
         this.cargo = cargo;
     }
 
-    public TipoContratacion getTipoContratacion() {
+    public String getTipoContratacion() {
         return tipoContratacion;
     }
 
-    public void setTipoContratacion(TipoContratacion tipoContratacion) {
+    public void setTipoContratacion(String tipoContratacion) {
         this.tipoContratacion = tipoContratacion;
     }
 

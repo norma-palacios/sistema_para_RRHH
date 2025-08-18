@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession ses = req.getSession(true);
                 ses.setAttribute("usuarioLogueado", u);
 
-                resp.sendRedirect(req.getContextPath() + "/home.jsp");
+                resp.sendRedirect(req.getContextPath() + "/ContratacionesServlet");
             } else {
                 req.setAttribute("error", "Usuario o contraseña inválidos.");
                 req.getRequestDispatcher("/login.jsp").forward(req, resp);

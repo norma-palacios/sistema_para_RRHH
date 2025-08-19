@@ -15,7 +15,8 @@
     <!-- Botones -->
     <div class="mb-4 text-center">
         <a href="agregarContratacion.jsp" class="btn btn-success me-2">Agregar Contratacion</a>
-        <a href="empleados.jsp" class="btn btn-primary">Agregar Empleado</a>
+        <a href="EmpleadoServlet?action=listar" class="btn btn-primary">Agregar Empleado</a>
+
     </div>
 
     <!-- Tabla responsive -->

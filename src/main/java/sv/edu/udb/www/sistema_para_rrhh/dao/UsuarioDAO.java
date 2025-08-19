@@ -12,8 +12,8 @@ public class UsuarioDAO {
         String sql = "SELECT password_hash FROM usuarios WHERE username = ?";
         try (Connection con = ConexionBD.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
-             ps.setString(1, usuario);
-             try (ResultSet rs = ps.executeQuery()) {
+            ps.setString(1, usuario);
+            try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return rs.getString("password_hash");
                 }
@@ -45,4 +45,3 @@ public class UsuarioDAO {
         return null;
     }
 }
-

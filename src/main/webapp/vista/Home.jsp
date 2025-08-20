@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,7 +15,7 @@
 
     <!-- Botones -->
     <div class="mb-4 text-center">
-        <a href="agregarContratacion.jsp" class="btn btn-success me-2">Agregar Contratacion</a>
+        <a href="${pageContext.request.contextPath}/FormularioContratacionServlet" class="btn btn-success me-2">Agregar Contratacion</a>
         <a href="empleados.jsp" class="btn btn-primary">Agregar Empleado</a>
     </div>
 

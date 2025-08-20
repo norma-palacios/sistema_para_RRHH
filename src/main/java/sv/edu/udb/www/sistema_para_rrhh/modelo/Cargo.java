@@ -15,6 +15,11 @@ public class Cargo {
         this.jefatura = jefatura;
     }
 
+    public Cargo(int idCargo, String cargo) {
+        this.idCargo = idCargo;
+        this.cargo = cargo;
+    }
+
     public int getIdCargo() {
         return idCargo;
     }

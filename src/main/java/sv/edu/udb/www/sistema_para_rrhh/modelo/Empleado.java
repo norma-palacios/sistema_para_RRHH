@@ -24,6 +24,10 @@ public class Empleado {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public Empleado (int idEmpleado, String nombrePersona){
+        this.idEmpleado= idEmpleado;
+        this.nombrePersona=nombrePersona;
+    }
     public int getIdEmpleado() {
         return idEmpleado;
     }
